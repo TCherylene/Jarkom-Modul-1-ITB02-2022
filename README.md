@@ -1,9 +1,23 @@
 # Jarkom-Modul-1-ITB02-2022
 
 Anggota kelompok:
+
 1. Asima P. Y. Tampubolon 5027201009
 2. Cherylene Trevina 5027201033
 3. Fatih Rian Hibatul Hakim 5027201066
+
+Daftar isi:
+
+* [Nomor 1](#nomor-1)
+* [Nomor 2](#nomor-2)
+* [Nomor 3](#nomor-3)
+* [Nomor 4](#nomor-4)
+* [Nomor 5](#nomor-5)
+* [Nomor 6](#nomor-6)
+* [Nomor 7](#nomor-7)
+* [Nomor 8](#nomor-8)
+* [Nomor 9](#nomor-9)
+* [Nomor 10](#nomor-10)
 
 ## Nomor 1
 
@@ -32,6 +46,13 @@ Filter sehingga wireshark hanya mengambil paket yang berasal dari port 21!
 
 Penyelesaian:
 
+Untuk mencari source yang berasal dari port 21, dapat menggunakan filter `srcport`. Protokol yang tersedia pada port ini adalah **TCP** sehingga filter yang digunakan:
+
+`tcp.srcport == 21`
+
+Screenshot hasil:
+
+![nomor 4](images/Nomor%204.png)
 
 ## Nomor 5
 
@@ -39,6 +60,13 @@ Filter sehingga wireshark hanya mengambil paket yang berasal dari port 443!
 
 Penyelesaian:
 
+Untuk mencari source yang berasal dari port 21, dapat menggunakan filter `srcport`. Pada port 443 (untuk HTTPS), terdapat 2 protokol yang kami temukan, yaitu **TCP** dan **UDP**. Oleh karena itu, filter yang kami gunakan menggunakan logical operator `atau` (`||`). Oleh karena itu, filter menjadi:
+
+`tcp.srcport == 443 || udp.srcport == 443`
+
+Screenshot hasil:
+
+![nomor 5](images/Nomor%205.png)
 
 ## Nomor 6
 
@@ -46,6 +74,13 @@ Filter sehingga wireshark hanya menampilkan paket yang menuju ke lipi.go.id!
 
 Penyelesaian:
 
+Untuk menampilkan paket yang hanya menggunakan nama website/domain, dapat menggunakan filter `http.host`. Oleh karena itu, filter menjadi:
+
+`http.host == lipi.go.id`
+
+Screenshot hasil:
+
+![nomor 6](images/Nomor%206.png)
 
 ## Nomor 7
 
@@ -53,6 +88,17 @@ Filter sehingga wireshark hanya mengambil paket yang berasal dari ip kalian!
 
 Penyelesaian:
 
+Cara untuk mencari ip kami (di kali linux): `ifconfig`
+
+IP yang muncul adalah `192.168.19.128` (eth0)
+
+Selanjutnya, pada wireshark ditekan capture filter untuk `eth0`. Selanjutnya, pada display filter, untuk mencari sumber ip tertentu, menggunakan filter `ip.src`. Oleh karena itu, filter yang kami gunakan:
+
+`ip.src == 192.168.19.128`
+
+Screenshot hasil: 
+
+![nomor 7](images/Nomor%207.png)
 
 ## Nomor 8
 
@@ -71,3 +117,5 @@ Penyelesaian:
 ## Nomor 10
 
 Temukan password rahasia (flag) dari organisasi bawah tanah yang disebutkan di atas!
+
+Penyelesaian:
