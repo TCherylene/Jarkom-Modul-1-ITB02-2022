@@ -24,13 +24,41 @@ Daftar isi:
 Sebutkan web server yang digunakan pada "monta.if.its.ac.id"!
 
 Penyelesaian:
+Filter yang digunakan:
+`http.host == monta.if.its.ac.id`
 
+Selanjutnya melakukan Follow TCP Stream dengan klik kanan -> Follow -> TCP Stream.
+
+![nomor 1](images/Nomor%204.png)
+
+Setelah itu, muncul window baru seperti gambar berikut. Selanjutnya web-server terletak pada tulisan biru bagian “Server”.
+
+Screenshot hasil:
+
+![nomor 1](images/Nomor%204.png)
+
+Oleh karena itu, web server: nginx/1.10.3
 
 ## Nomor 2
 
 Ishaq sedang bingung mencari topik TA untuk semester ini, lalu ia datang ke website monta dan menemukan **detail topik** pada website "monta.if.its.ac.id", judul TA apa yang dibuka oleh Ishaq?
 
 Penyelesaian:
+
+Cara mengetahui judul TA yang dibuka Ishaq adalah dengan mencari header yang terdapat tulisan “detailTopik” dan website “monta.if.its.ac.id”.
+
+Filter yang digunakan:
+
+`http contains detailTopik && http.host == monta.if.its.ac.id`
+
+![nomor 2](images/Nomor%204.png)
+
+Selanjutnya, kami membuka Full Request URI yang terdapat pada paket tersebut.
+
+![nomor 2](images/Nomor%204.png)
+
+Selanjutnya, ditemukan bahwa topik tugas akhir yang dibuka adalah: Evaluasi untuk
+kerja User Space Filesystem (FUSE)
 
 
 ## Nomor 3
@@ -39,6 +67,12 @@ Filter sehingga wireshark hanya menampilkan paket yang menuju port 80!
 
 Penyelesaian:
 
+Filter yang digunakan:
+`tcp.dstport == 80`
+
+Screenshot hasil:
+
+![nomor 3](images/Nomor%206.png)
 
 ## Nomor 4
 
