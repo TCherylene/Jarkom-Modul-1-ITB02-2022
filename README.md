@@ -29,13 +29,13 @@ Filter yang digunakan:
 
 Selanjutnya melakukan Follow TCP Stream dengan klik kanan -> Follow -> TCP Stream.
 
-![nomor 1](images/Nomor%1_1.png)
+![nomor 1](images/Nomor%201_1.png)
 
 Setelah itu, muncul window baru seperti gambar berikut. Selanjutnya web-server terletak pada tulisan biru bagian “Server”.
 
 Screenshot hasil:
 
-![nomor 1](images/Nomor%1_2.png)
+![nomor 1](images/Nomor%201_2.png)
 
 Oleh karena itu, web server: nginx/1.10.3
 
@@ -51,11 +51,11 @@ Filter yang digunakan:
 
 `http contains detailTopik && http.host == monta.if.its.ac.id`
 
-![nomor 2](images/Nomor%2_1.png)
+![nomor 2](images/Nomor%202_1.png)
 
 Selanjutnya, kami membuka Full Request URI yang terdapat pada paket tersebut.
 
-![nomor 2](images/Nomor%2_2.png)
+![nomor 2](images/Nomor%202_2.png)
 
 Selanjutnya, ditemukan bahwa topik tugas akhir yang dibuka adalah: Evaluasi untuk
 kerja User Space Filesystem (FUSE)
@@ -72,7 +72,7 @@ Filter yang digunakan:
 
 Screenshot hasil:
 
-![nomor 3](images/Nomor%3.png)
+![nomor 3](images/Nomor%203.png)
 
 ## Nomor 4
 
