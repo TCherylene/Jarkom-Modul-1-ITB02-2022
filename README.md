@@ -140,12 +140,39 @@ Telusuri aliran paket dalam file .pcap yang diberikan, cari informasi berguna be
 
 Penyelesaian:
 
+Ketika mem-follow beberapa stream (brute force dan length nya lebih dari 100), kami menemukan beberapa percakapan. Pertimbangan kami menggunakan len > 100 karena sebagian besar paket yang memiliki panjang kurang dari 100 adalah kata-kata yang tidak berhubungan. 
+
+Filter yang digunakan:
+`tcp.len > 100`
+Setelah dijalankan filternya. berikut adalah hasilnya :
+![filter](https://cdn.discordapp.com/attachments/873077363796230156/1022479916169711676/unknown.png)
+
+Adapun isi dari percakapan yang ditemukan adalah sebagai berikut :
+
+![pesan1](https://cdn.discordapp.com/attachments/873077363796230156/1022479997212033074/unknown.png)
+
+![pesan2](https://cdn.discordapp.com/attachments/873077363796230156/1022480121371828284/unknown.png)
+
+![pesan3](https://cdn.discordapp.com/attachments/873077363796230156/1022480186379337890/unknown.png)
+
 
 ## Nomor 9
 
 Terdapat laporan adanya pertukaran file yang dilakukan oleh kedua mahasiswa dalam percakapan yang diperoleh, carilah file yang dimaksud! Untuk memudahkan laporan kepada atasan, beri nama file yang ditemukan dengan format [nama_kelompok].des3 dan simpan output file dengan nama “flag.txt”.
 
 Penyelesaian:
+Dari gambar percakapan yang pertama, disebutkan bahwa terdapat file yang dikirimkan pada port 9002. Oleh karena itu, kami mencoba filter:
+`tcp.port == 9002`
+berikut adalah hasilnya :
+
+![cari paket](https://media.discordapp.net/attachments/873077363796230156/1022480260106829844/unknown.png?width=537&height=383)
+
+setelah kami follow. satu-satuny file yang sekiranya berbeda dan mungkin adalah hal berikut :
+
+![paket tersembunyi](https://media.discordapp.net/attachments/873077363796230156/1022480315656183868/unknown.png?width=643&height=220)
+
+Kami menyimpan data sebagai raw untuk didecode berdasarkan percakapan pertama :
+![paket raw](https://media.discordapp.net/attachments/873077363796230156/1022480423856652358/unknown.png?width=440&height=407)
 
 
 ## Nomor 10
@@ -153,3 +180,12 @@ Penyelesaian:
 Temukan password rahasia (flag) dari organisasi bawah tanah yang disebutkan di atas!
 
 Penyelesaian:
+
+erdasarkan percakapan yang pertama, file tersebut di decrypt dengan menggunakan OpenSSL, metodenya DES3. Selanjutnya, kami memanfaatkan kali linux untuk melakukan dekripsi sekaligus menampilkan hasil flagnya.
+
+Command yang telah kami coba adalah: (di kali linux)
+`openssl enc -des3 -d -in ITB02.des3 -out flag.txt | cat flag.txt`
+
+adapun untuk password. berdasarkan percakapan ke-tiga, passwordny merupakan dari sebuah anime dengan main character kembar lima. singkat cerita kami dapatkan passwordnya yaitu `nakano`
+
+![flag didapatkan](https://media.discordapp.net/attachments/873077363796230156/1022480460867178598/unknown.png?width=463&height=297)
